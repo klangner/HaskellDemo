@@ -1,0 +1,14 @@
+name:           HaskellDemo
+version:        0.1
+cabal-version:  >=1.2
+build-type:     Simple
+author:         Krzysztof Langner
+
+executable HaskellDemo
+  hs-source-dirs:  src
+  main-is:         Main.hs
+  build-depends:   
+                  base >= 4,
+                  gtk
+  ghc-options:     -Wall
+
