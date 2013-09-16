@@ -11,4 +11,5 @@ executable HaskellDemo
                   base >= 4,
                   gtk
   ghc-options:     -Wall
+  other-modules:   Testbed
 
