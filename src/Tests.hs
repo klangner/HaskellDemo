@@ -1,21 +1,8 @@
-module Testbed where
+module Tests where
 
 import Test.QuickCheck
 import Shape
 
--- Init sample model
-model :: Model
-model = [
-        Rectangle "rect1" (Position 10 10) (Size 50 50),
-        Circle "c1" (Position 20 30) 5
-        ]
-
-actions :: [(Name, Action)]
-actions = [
-            ("rect", moveAction 10 10), 
-            ("rect", moveAction 20 0),
-            ("c1", moveAction 1 4)
-          ]
 
 -- Test
 prop_move :: Action -> Shape -> Shape -> Bool
