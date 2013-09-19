@@ -4,8 +4,8 @@ import Tests
 import Shape
 
 -- Init sample model
-model :: Model
-model = [
+baseModel :: Model
+baseModel = [
         Rectangle "rect1" (Position 10 10) (Size 50 50),
         Circle "c1" (Position 20 30) 5
         ]
@@ -18,18 +18,23 @@ keyBindings =  Map.fromList [
             ('d', moveAction 0 10)
           ]
 
+key2action :: Char -> Maybe Action
+key2action c = Map.lookup c keyBindings
 
-actionLoop :: Maybe Action -> IO ()
-actionLoop Nothing = return ()
-actionLoop (Just action) = do 
-    print (map action model)
+
+actionLoop :: Maybe Action -> Model -> IO ()
+actionLoop Nothing _ = return ()
+actionLoop (Just action) model = do 
+    print newModel
     c <- getChar
-    actionLoop (Map.lookup c keyBindings)
-
+    actionLoop (key2action c) newModel
+    where
+        newModel = map action model
+        
 
 
 main :: IO ()
 main = do
     c <- getChar
-    actionLoop (Map.lookup c keyBindings)
+    actionLoop (key2action c) baseModel
 

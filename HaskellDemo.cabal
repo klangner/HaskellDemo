@@ -6,7 +6,7 @@ author:         Krzysztof Langner
 
 executable HaskellDemo
   hs-source-dirs:  src
-  main-is:         Main.hs
+  main-is:         dask/Main.hs
   build-depends:   
                   base >= 4,
                   gtk
