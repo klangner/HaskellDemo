@@ -81,8 +81,12 @@ ident = do v  <- lower
 
 -- Natural numbers
 nat :: Parser Int
-nat = do vs <- many1 digit
-         return (read vs)
+nat = do 
+        do (char '-')
+           vs <- many1 digit
+           return (- (read vs))
+           +++ do vs <- many1 digit
+                  return (read vs)
 
 space :: Parser () -- Empty tuple
 space = do vs <- many (sat isSpace)
@@ -111,3 +115,43 @@ p = do symbol "["
                       natural)
        symbol "]"
        return (n:ns)  
+
+expr :: Parser Int
+expr = do t <- term
+          do symbol "+"
+             e <- expr
+             return (t+e)
+             +++ do symbol "-"
+                    e <- expr
+                    return (t-e)
+                    +++ return t
+
+term :: Parser Int
+term = do f <- pow
+          do symbol "*"
+             t <- term
+             return (f*t)
+             +++ do symbol "/"
+                    t <- term
+                    return (div f t)
+                    +++ return f
+
+pow :: Parser Int
+pow = do b <- factor
+         symbol "^"
+         e <- factor
+         return (b^e)
+         +++ factor
+
+factor :: Parser Int
+factor = do symbol "("
+            e <- expr
+            symbol ")"
+            return e
+            +++ natural
+
+eval :: String -> Int
+eval xs = case parse expr xs of
+            [(v, [])] -> v
+            [(_, out)] -> error ("Not consumed: " ++ out)
+            [] -> error "invalid input"
