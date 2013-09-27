@@ -3,10 +3,10 @@ module Countdown where
 data Op = Add | Sub | Mul | Div deriving (Show)
 
 valid :: Op -> Int -> Int -> Bool
-valid Add _ _ = True
+valid Add x y = x >= y
 valid Sub x y = x > y
-valid Mul _ _ = True
-valid Div x y = x `mod` y == 0
+valid Mul x y = x >= y && x /= 1 && y /= 1
+valid Div x y = y /= 1 && x `mod` y == 0
 
 apply :: Op -> Int -> Int -> Int 
 apply Add x y = x + y
@@ -51,6 +51,7 @@ choices xs = concat (map perms (subs xs))
 solution :: Expr -> [Int] -> Int -> Bool
 solution e vs n = eval e == [n] && elem (values e) (choices vs)
 
+-- Create all possible splits
 split :: [a] -> [([a], [a])]
 split [] = []
 split [_] = []
@@ -74,4 +75,22 @@ solutions :: [Int] -> Int -> [Expr]
 solutions vs n = [e | cs <- choices vs,
                       e <- exprs cs,
                       eval e == [n]]
+
+type Result = (Expr, Int)
+
+results :: [Int] -> [Result]
+results [] = []
+results [n] = [(Val n, n)]
+results ns = [r | (ls, rs) <- split ns,
+                  x <- results ls,
+                  y <- results rs,
+                  r <- combine' x y]
+
+combine' :: Result -> Result -> [Result]
+combine' (l,x) (r,y) = [(App o l r, apply o x y) | o <- ops, valid o x y ]
+                             
+solutions' :: [Int] -> Int -> [Expr]
+solutions' vs n = [e | cs <- choices vs,
+                       (e, m) <- results cs,
+                       m == n]
 

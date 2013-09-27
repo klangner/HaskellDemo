@@ -15,3 +15,9 @@ main = do
     records <- readRecords handle
     putStr (show (length records))
     hClose handle  
+
+max' :: Ord a => [a] -> a
+max' [x] = x
+max' (x:xs) = if x > y then x else y
+             where
+                y = max' xs
