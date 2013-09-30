@@ -1,6 +1,8 @@
+{-# LANGUAGE TemplateHaskell #-}
 module Sandbox where
 
 import Test.QuickCheck
+import Test.QuickCheck.All
 import Data.List
 
 qsort :: Ord a => [a] -> [a]
@@ -42,4 +44,5 @@ prop_sort_model :: [Int] -> Bool
 prop_sort_model xs = sort xs == qsort xs
 
 -- Run tests
+runTests = $quickCheckAll
 
