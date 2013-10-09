@@ -4,8 +4,8 @@ type WorldMap = [String]
 type Model = [Float]
 
 location :: Model
--- location = [0.2, 0.2, 0.2, 0.2, 0.2]
-location = [0, 1, 0, 0, 0]
+location = [0.2, 0.2, 0.2, 0.2, 0.2]
+--location = [0, 1, 0, 0, 0]
 
 world :: WorldMap
 world = ["green", "red", "red", "green", "green"]
@@ -17,6 +17,11 @@ sMiss = 0.2
 mExact = 0.8
 mOvershoot = 0.1
 mUndershoot = 0.1
+
+-- Robot activity
+measurements = ["red", "red"]
+motions :: [Int]
+motions = [1, 1]
 
 applySensor :: String -> WorldMap -> Model -> Model
 applySensor _ _ [] = []
@@ -44,3 +49,11 @@ move d xs = [a*mUndershoot + b*mExact + c*mOvershoot | (a,b,c) <- ss]
 repeat2 :: Int -> (a -> a) -> a -> a
 repeat2 1 f v = f v
 repeat2 n f v = f (repeat2 (n-1) f v)
+
+run :: [String] -> [Int] -> WorldMap -> Model -> Model
+run [] _ _ m = m
+run _ [] _ m = m
+run (x:xs) (y:ys) wm m = run xs ys wm (move y (normalize (applySensor x wm m)))
+
+
+
