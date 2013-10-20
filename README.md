@@ -1,3 +1,3 @@
-# Haskell demo application
+# Haskell library functions
 
-Used to learn Haskell
+Different functions written using Haskell language
