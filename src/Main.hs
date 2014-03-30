@@ -1,7 +1,6 @@
 
 import qualified Data.Map as Map
-import Tests
-import Shape
+import Old.Shape
 
 -- Init sample model
 baseModel :: Model

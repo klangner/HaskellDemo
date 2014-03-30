@@ -1,4 +1,4 @@
-module Localization where
+module Robotics.Localization where
 
 type WorldMap = [String]
 type Model = [Float]

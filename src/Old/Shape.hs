@@ -1,4 +1,4 @@
-module Shape where
+module Old.Shape where
 
 -- Base types
 data Position = Position Float Float deriving (Show, Eq)

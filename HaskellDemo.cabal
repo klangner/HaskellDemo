@@ -6,10 +6,9 @@ author:         Krzysztof Langner
 
 executable HaskellDemo
   hs-source-dirs:  src
-  main-is:         dask/Main.hs
+  main-is:         Main.hs
   build-depends:   
                   base >= 4,
-                  gtk
+                  containers >=0.5.0 && <0.6
   ghc-options:     -Wall
-  other-modules:   Tests
 

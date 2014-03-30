@@ -1,4 +1,4 @@
-module Convolution where
+module DSP.Convolution where
 
 type Signal = [Double]
 

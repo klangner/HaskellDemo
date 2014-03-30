@@ -1,4 +1,4 @@
-module Kalman where
+module Robotics.Kalman where
 
 
 type Gaussian = (Float, Float)

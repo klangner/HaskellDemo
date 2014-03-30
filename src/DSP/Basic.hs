@@ -1,4 +1,4 @@
-module Basic where
+module DSP.Basic where
 
 type Signal = [Float]
 type Input = Integer -> Float

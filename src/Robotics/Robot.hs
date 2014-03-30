@@ -1,4 +1,4 @@
-module Robot where
+module Robotics.Robot where
 
 type Landmarks = [(Float, Float)]
 type Angle = Float
