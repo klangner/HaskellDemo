@@ -1,3 +1,3 @@
-# Haskell library functions
+# Haskell sandbox
 
-Different functions written using Haskell language
+Different modules written to learn Haskell
