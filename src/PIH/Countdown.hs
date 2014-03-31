@@ -16,10 +16,10 @@ solve xs n = filter p $ concatMap build (permute xs)
 
 -- Check if given expression is valid
 valid :: Op -> Int -> Int -> Bool
-valid Plus _ _  = True
+valid Plus a b  = a > 0 && b > 0 && a >= b
 valid  Minus a b = a > b 
-valid  Multi _ _ = True
-valid Div a b = a `mod` b == 0           
+valid  Multi a b = a > 1 && b > 1 && a >= b
+valid Div a b = a `mod` b == 0 && b > 1
 
 -- Apply operation
 apply :: Op -> Int -> Int -> Int
