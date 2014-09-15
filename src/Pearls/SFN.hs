@@ -1,5 +1,5 @@
 {--
-    Smallest free number 
+    Pearl 1. Smallest free number 
 --}
 module Pearls.SFN where
 
@@ -11,7 +11,6 @@ minfree = minfree2 0
 
 minfree2 :: Int -> [Int] -> Int
 minfree2 a [] = a
---minfree2 a [b] = if a < b then a else a+1
 minfree2 a xs = if length us == (b-a) then minfree2 b vs else minfree2 a us 
     where b = a + (length xs + 1) `div` 2
           (us, vs) = partition (b >) xs         

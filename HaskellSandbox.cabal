@@ -13,5 +13,6 @@ executable HaskellSandbox
   ghc-options:     -Wall
   other-modules:   
                    Pearls.SFN,
-                   Algo004.Sorting
+                   Algo004.Sorting,
+                   Anthill.Script
 
