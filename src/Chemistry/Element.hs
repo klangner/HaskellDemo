@@ -69,12 +69,12 @@ elements = [ Element 1 "H" "Hydrogen" 1.008
             -- Te  Tellurium       52  127,6 
             -- I   Iodine      53  126,90447 
             -- Xe  Xenon       54  131,29 
-            , Element  55 "Cs" "Caesium" 132.90543 
-            -- Ba  Barium      56  137,327 
-            -- La  Lanthanum       57  138,9055 
-            -- Ce  Cerium      58  140,115 
-            -- Pr  Praseodymium        59  140,90765 
-            -- Nd  Neodymium       60  144,24 
+            , Element 55 "Cs" "Caesium" 132.90543 
+            , Element 56 "Ba" "Barium" 137.327 
+            , Element 57 "La" "Lanthanum" 138.9055 
+            , Element 58 "Ce" "Cerium" 140.115 
+            , Element 59 "Pr" "Praseodymium" 140.90765 
+            , Element 60 "Nd" "Neodymium" 144.24 
             , Element 61 "Pm" "Promethium" 146.9151 
             -- Sm  Samarium        62  150,36 
             -- Eu  Europium        63  151,965 
