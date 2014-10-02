@@ -14,5 +14,6 @@ executable HaskellSandbox
   other-modules:   
                    Pearls.SFN,
                    Algo004.Sorting,
-                   Anthill.Script
+                   Anthill.Script,
+                   DES.LogicGates
 
