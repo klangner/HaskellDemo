@@ -1,4 +1,4 @@
-module Algo004.Sorting where
+module Algorithms.Sorting where
 
 msort :: Ord a => [a] -> [a]
 msort [] = []

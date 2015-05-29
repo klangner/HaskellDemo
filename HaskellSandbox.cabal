@@ -10,10 +10,11 @@ executable HaskellSandbox
   build-depends:   
                   base >= 4,
                   containers >=0.5.0 && <0.6
-  ghc-options:     -Wall
+  ghc-options:     -Wall -O2 -prof -rtsopts
   other-modules:   
                    Pearls.SFN,
-                   Algo004.Sorting,
                    Anthill.Script,
-                   DES.LogicGates
+                   DES.LogicGates,
+                   Algorithms.Sorting,
+                   Refactoring.Step1
 
