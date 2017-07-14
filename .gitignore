@@ -3,4 +3,8 @@
 /.externalToolBuilders
 /data
 /dist
-/ref/
+.idea
+*.iml
+.project
+.cabal-sandbox
+cabal.sandbox.config
